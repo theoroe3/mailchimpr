@@ -287,3 +287,29 @@ list_delete = function(api = NULL, list_id){
 
   invisible(result)
 }
+
+#' @title Get the segments for a list
+#'
+#' @description Get the segments for a list
+#'
+#' @param api Character. Your private api key. If api is `NULL`, the environment variable `Sys.getenv("mailchimp_api")` is used.
+#' @param list_id Character. The ID of a list. See `get_lists()`.
+#'
+#' @export
+list_get_segments = function(api = NULL, list_id) {
+  mailchimp_api = api_get()
+  mailchimp_api_url = url_get()
+  result = httr::GET(
+    paste0(mailchimp_api_url, '/lists/', list_id, "/segments"),
+    httr::authenticate("anystring", mailchimp_api)
+  ) %>%
+    httr::content()
+
+  segments = result$segments %>%
+    purrr::map_df(~ c(.x["id"], .x["name"],
+                      .x["member_count"], .x["created_at"],
+                      .x["updated_at"]))
+
+  return(segments)
+}
+
