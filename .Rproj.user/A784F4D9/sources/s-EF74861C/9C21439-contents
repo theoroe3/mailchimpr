@@ -1,0 +1,4 @@
+R_LIBS=/home/theo/R/x86_64-pc-linux-gnu-library/3.5
+PYTHONPATH=/home/theo/anaconda3/bin/python
+mailchimp_api="39b1189fa1cfb0b995d33e180b7c6057-us4"
+typeform_api2="A6EmKtBjZihYPmdnNLhnqoZwzFWK27HYCK2UEzNZuvf8"
