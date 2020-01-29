@@ -287,3 +287,11 @@ list_delete = function(api = NULL, list_id){
 
   invisible(result)
 }
+
+## segments -------------------------------------------------------
+
+list_get_segments = function(api, list_id){
+  mailchimp_api_url = url_get()
+  mailchimp_api = api_get(api = api)
+  result 
+}
